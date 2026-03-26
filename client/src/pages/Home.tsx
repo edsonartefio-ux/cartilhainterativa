@@ -1,14 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { AlertCircle, BookOpen, Calendar, FileText, GraduationCap, RotateCcw, Clock, CheckCircle2 } from "lucide-react";
+import { AlertCircle, BookOpen, Calendar, FileText, GraduationCap, RotateCcw, Clock, CheckCircle2, ExternalLink, QrCode } from "lucide-react";
 import { useState } from "react";
+import { QRCodeSVG as QRCode } from "qrcode.react";
 
 /**
  * Design: Academic Modernism with Blue & Gold palette
- * - Hero section with gradient and abstract illustration
- * - Card grid for services (3 columns desktop, responsive mobile)
- * - Expandable cards for detailed information
- * - Smooth animations and hover effects
+ * IFRN - Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte
+ * Dados reais com links dos manuais do SUAP
  */
 
 interface Service {
@@ -19,119 +18,147 @@ interface Service {
   details: string[];
   steps: string[];
   manualLink: string;
+  manualTitle: string;
   urgency?: "high" | "medium" | "low";
+  suapInfo?: string;
 }
 
 const services: Service[] = [
   {
     id: "trancamento",
     title: "Trancamento de Matrícula",
-    description: "Suspensão temporária do vínculo com a instituição",
+    description: "Suspensão temporária do vínculo acadêmico",
     icon: <Calendar className="w-8 h-8" />,
     details: [
       "Interrupção oficial dos estudos por período determinado",
       "Mantém sua vaga na instituição",
-      "Ideal para resolver questões pessoais",
+      "Realizado via chamados no SUAP",
+      "Organiza e registra oficialmente a demanda",
     ],
     steps: [
-      "Acesse o sistema acadêmico com seu login",
-      "Localize a opção 'Trancamento' no menu de serviços",
-      "Siga rigorosamente as orientações do manual",
+      "Acesse o SUAP (portal.ifrn.edu.br)",
+      "Abra um chamado na Central de Serviços",
+      "Selecione a opção de trancamento",
+      "Siga as orientações do sistema",
     ],
-    manualLink: "#",
+    manualLink: "https://portal.ifrn.edu.br/documents/24284/Abertura_de_chamados_do_Ensino_no_SUAP.pdf",
+    manualTitle: "Abertura de Chamados no SUAP",
     urgency: "medium",
+    suapInfo: "Solicitação via Central de Serviços",
   },
   {
     id: "aproveitamento",
     title: "Aproveitamento de Estudos",
-    description: "Valide disciplinas que você já cursou",
+    description: "Validação de disciplinas cursadas anteriormente",
     icon: <BookOpen className="w-8 h-8" />,
     details: [
       "Solicitação para validar disciplinas já cursadas",
       "Compatibilidade de carga horária e conteúdo",
       "Evita cursar matérias que podem ser validadas",
+      "Requer histórico escolar e ementas",
     ],
     steps: [
       "Separe histórico escolar e ementas das disciplinas",
-      "Acesse o portal do aluno na aba 'Aproveitamento'",
-      "Anexe os documentos digitalizados em alta qualidade",
+      "Acesse o SUAP",
+      "Abra o requerimento correspondente",
+      "Siga o passo a passo no manual",
     ],
-    manualLink: "#",
+    manualLink: "https://portal.ifrn.edu.br/documents/26421/Discente_-_Tutorial_para_solicita%C3%A7%C3%A3o_de_aproveitamento.pdf",
+    manualTitle: "Tutorial de Aproveitamento de Estudos",
+    suapInfo: "Requerimento no SUAP",
   },
   {
     id: "justificativa",
     title: "Justificativa de Faltas",
-    description: "Para situações excepcionais com comprovação",
+    description: "Para ausências excepcionais com comprovação",
     icon: <AlertCircle className="w-8 h-8" />,
     details: [
-      "Faltas justificadas apenas com comprovação oficial",
-      "Casos previstos em lei ou no regimento",
-      "Reúna documentos comprobatórios",
+      "Casos: doença, falecimento de familiar, compromissos legais",
+      "Requer documentos comprobatórios",
+      "Registro formal e seguro no SUAP",
+      "Permite envio de atestados digitalizados",
     ],
     steps: [
-      "Reúna atestados médicos ou documentos comprobatórios",
-      "Fique atento ao limite de dias úteis após a ausência",
-      "Envie a solicitação digitalizada pelo sistema acadêmico",
+      "Reúna documentos comprobatórios (atestados, certidões, etc)",
+      "Acesse o SUAP",
+      "Abra um chamado ou solicitação",
+      "Siga as orientações do manual",
     ],
-    manualLink: "#",
+    manualLink: "https://portal.ifrn.edu.br/documents/25575/Tutorial_para_justificativas_de_faltas_-_Alunos.pdf",
+    manualTitle: "Tutorial de Justificativa de Faltas",
     urgency: "high",
+    suapInfo: "Chamado com envio seguro de atestados",
   },
   {
     id: "reposicao",
     title: "Reposição de Atividades",
-    description: "Para casos de perda de prova ou atividade",
+    description: "Para casos de perda de prova ou atividade avaliativa",
     icon: <RotateCcw className="w-8 h-8" />,
     details: [
-      "Garantida para alunos que perderam avaliações",
-      "Motivos justificados e comprovados",
-      "Algumas reposições podem ter taxas administrativas",
+      "Casos: doença, falecimento de familiar, compromissos legais",
+      "Requer comprovação do motivo",
+      "Realizado via SUAP com registro formal",
+      "Permite acompanhamento do status",
     ],
     steps: [
-      "Verifique o prazo limite para o pedido de reposição",
-      "Acesse o portal e selecione a atividade a repor",
-      "Siga o manual disponível e acompanhe o status",
+      "Reúna documentos comprobatórios",
+      "Acesse o SUAP",
+      "Abra um chamado ou solicitação",
+      "Siga as orientações do manual de justificativas",
     ],
-    manualLink: "#",
+    manualLink: "https://portal.ifrn.edu.br/documents/25575/Tutorial_para_justificativas_de_faltas_-_Alunos.pdf",
+    manualTitle: "Tutorial de Justificativa de Faltas",
+    urgency: "high",
+    suapInfo: "Mesmo procedimento de justificativa de faltas",
   },
   {
     id: "documentos",
     title: "Emissão de Documentos",
-    description: "Solicitação de declarações e certificados",
+    description: "Solicitação de documentos acadêmicos",
     icon: <FileText className="w-8 h-8" />,
     details: [
-      "Declaração de matrícula, histórico e certificados",
-      "Processo rápido e digital, disponível 24h",
-      "Documentos com código de verificação digital",
+      "Declaração de matrícula",
+      "Histórico escolar",
+      "Certificados de conclusão",
+      "Disponível diretamente no SUAP",
     ],
     steps: [
-      "Acesse o sistema acadêmico",
-      "Vá até a área de 'Documentos' ou 'Secretaria Virtual'",
-      "Selecione o documento desejado e clique em 'Gerar'",
+      "Acesse o SUAP",
+      "Vá até a área de documentos",
+      "Solicite ou faça download do documento",
+      "Alguns documentos são emitidos automaticamente",
     ],
-    manualLink: "#",
+    manualLink: "https://portal.ifrn.edu.br",
+    manualTitle: "Portal IFRN",
+    suapInfo: "Acesso direto no SUAP",
   },
   {
     id: "renovacao",
     title: "Renovação de Matrícula",
-    description: "Confirmação do vínculo para o próximo período",
+    description: "Procedimento obrigatório a cada período letivo",
     icon: <GraduationCap className="w-8 h-8" />,
     details: [
-      "Obrigatória dentro do calendário acadêmico",
-      "Garanta sua vaga para o próximo semestre",
-      "Perda do prazo resulta em cancelamento do vínculo",
+      "Obrigatória a cada período letivo",
+      "Respeite o calendário acadêmico",
+      "Verifique pendências antes de renovar",
+      "Realizada totalmente no SUAP",
     ],
     steps: [
+      "Acesse o SUAP",
       "Verifique pendências financeiras e de biblioteca",
-      "Acesse o portal do aluno e confirme as disciplinas",
-      "Siga o manual para concluir a assinatura do contrato",
+      "Realize a renovação conforme o sistema",
+      "Guarde o comprovante de renovação",
     ],
-    manualLink: "#",
+    manualLink: "https://portal.ifrn.edu.br/documents/25753/Renova%C3%A7%C3%A3o_de_matr%C3%ADcula_JFN8Na3.pdf",
+    manualTitle: "Manual de Renovação de Matrícula",
     urgency: "high",
+    suapInfo: "Procedimento obrigatório no SUAP",
   },
 ];
 
 export default function Home() {
   const [expandedService, setExpandedService] = useState<string | null>(null);
+  const [showQRModal, setShowQRModal] = useState<string | null>(null);
 
   const toggleExpanded = (id: string) => {
     setExpandedService(expandedService === id ? null : id);
@@ -169,14 +196,14 @@ export default function Home() {
               <GraduationCap className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-blue-900">Guia Acadêmico</h1>
-              <p className="text-xs text-gray-600">Solicitações e Procedimentos</p>
+              <h1 className="text-xl font-bold text-blue-900">IFRN</h1>
+              <p className="text-xs text-gray-600">Guia de Solicitações Acadêmicas</p>
             </div>
           </div>
           <nav className="hidden md:flex gap-8">
             <a href="#servicos" className="text-sm font-medium text-gray-700 hover:text-blue-900 transition">Serviços</a>
             <a href="#avisos" className="text-sm font-medium text-gray-700 hover:text-blue-900 transition">Avisos</a>
-            <a href="#suporte" className="text-sm font-medium text-gray-700 hover:text-blue-900 transition">Suporte</a>
+            <a href="#suap" className="text-sm font-medium text-gray-700 hover:text-blue-900 transition">Sobre SUAP</a>
           </nav>
         </div>
       </header>
@@ -193,7 +220,7 @@ export default function Home() {
               Guia de Solicitações Acadêmicas
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
-              Passo a passo para não se perder na jornada universitária. Encontre informações claras sobre todos os serviços acadêmicos disponíveis.
+              Passo a passo para não se perder. Todas as solicitações são feitas pelo SUAP com segurança e registro formal.
             </p>
             <div className="flex gap-4">
               <Button
@@ -207,9 +234,9 @@ export default function Home() {
                 size="lg"
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-blue-900"
-                onClick={() => document.getElementById("avisos")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => document.getElementById("suap")?.scrollIntoView({ behavior: "smooth" })}
               >
-                Ver Avisos
+                Acessar SUAP
               </Button>
             </div>
           </div>
@@ -228,8 +255,8 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-blue-900 mb-2">Objetivo</h3>
-                <p className="text-gray-700">Facilitar o acesso a serviços acadêmicos de forma rápida e intuitiva.</p>
+                <h3 className="text-lg font-semibold text-blue-900 mb-2">Centralizado</h3>
+                <p className="text-gray-700">Todas as solicitações pelo SUAP com registro formal.</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -239,8 +266,8 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-blue-900 mb-2">Interatividade</h3>
-                <p className="text-gray-700">Cada seção possui links diretos para manuais detalhados.</p>
+                <h3 className="text-lg font-semibold text-blue-900 mb-2">Manuais Completos</h3>
+                <p className="text-gray-700">Links diretos para cada procedimento.</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -251,7 +278,7 @@ export default function Home() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-blue-900 mb-2">Praticidade</h3>
-                <p className="text-gray-700">Siga o passo a passo estruturado para evitar erros.</p>
+                <p className="text-gray-700">Siga o passo a passo estruturado.</p>
               </div>
             </div>
           </div>
@@ -294,6 +321,11 @@ export default function Home() {
                         {getUrgencyBadge(service.urgency)}
                       </div>
                     )}
+                    {service.suapInfo && (
+                      <div className="mt-3 text-xs text-blue-700 bg-blue-50 px-2 py-1 rounded inline-block">
+                        {service.suapInfo}
+                      </div>
+                    )}
                   </CardHeader>
 
                   {expandedService === service.id && (
@@ -322,14 +354,27 @@ export default function Home() {
                         </ol>
                       </div>
 
-                      <Button
-                        className="w-full bg-blue-900 hover:bg-blue-800 text-white"
-                        asChild
-                      >
-                        <a href={service.manualLink} target="_blank" rel="noopener noreferrer">
-                          Acessar Manual Completo
-                        </a>
-                      </Button>
+                      <div className="flex gap-2 pt-2">
+                        <Button
+                          className="flex-1 bg-blue-900 hover:bg-blue-800 text-white"
+                          asChild
+                        >
+                          <a href={service.manualLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                            <ExternalLink className="w-4 h-4" />
+                            Manual
+                          </a>
+                        </Button>
+                        <Button
+                          variant="outline"
+                          className="border-blue-900 text-blue-900 hover:bg-blue-50"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setShowQRModal(service.id);
+                          }}
+                        >
+                          <QrCode className="w-4 h-4" />
+                        </Button>
+                      </div>
                     </CardContent>
                   )}
                 </Card>
@@ -338,9 +383,55 @@ export default function Home() {
           </div>
         </section>
 
+        {/* SUAP Info Section */}
+        <section id="suap" className="mb-20 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border border-blue-200">
+          <h2 className="text-3xl font-bold text-blue-900 mb-6">💡 Sobre o SUAP</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-xl font-semibold text-blue-900 mb-3">O que é SUAP?</h3>
+              <p className="text-gray-700 mb-4">
+                SUAP é o Sistema Unificado de Administração Pública do IFRN. Através dele, você realiza todas as solicitações acadêmicas com segurança e registro formal.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
+                  Registro oficial de todas as demandas
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
+                  Acompanhamento de status em tempo real
+                </li>
+                <li className="flex gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
+                  Envio seguro de documentos digitalizados
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-blue-900 mb-3">Como Acessar?</h3>
+              <p className="text-gray-700 mb-4">
+                Acesse o portal do IFRN e faça login com suas credenciais de aluno.
+              </p>
+              <Button
+                size="lg"
+                className="w-full bg-blue-900 hover:bg-blue-800 text-white mb-4"
+                asChild
+              >
+                <a href="https://portal.ifrn.edu.br" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                  <ExternalLink className="w-4 h-4" />
+                  Acessar Portal IFRN
+                </a>
+              </Button>
+              <p className="text-xs text-gray-600">
+                Use suas credenciais de aluno (matrícula e senha)
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Important Notices */}
-        <section id="avisos" className="mb-20 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border border-blue-200">
-          <h2 className="text-3xl font-bold text-blue-900 mb-8">⚠️ Avisos Importantes</h2>
+        <section id="avisos" className="mb-20 bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-8 border border-red-200">
+          <h2 className="text-3xl font-bold text-red-900 mb-8">⚠️ Avisos Importantes</h2>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="flex gap-4">
@@ -348,9 +439,9 @@ export default function Home() {
                 <Clock className="h-6 w-6 text-red-600 mt-1" />
               </div>
               <div>
-                <h3 className="font-semibold text-blue-900 mb-2">Prazos Específicos</h3>
+                <h3 className="font-semibold text-red-900 mb-2">Respeite os Prazos</h3>
                 <p className="text-gray-700 text-sm">
-                  Todos os procedimentos possuem datas rígidas no calendário acadêmico. Solicitações fora do prazo não serão processadas.
+                  Todas as solicitações possuem datas rígidas no calendário acadêmico. Solicitações fora do prazo não serão processadas.
                 </p>
               </div>
             </div>
@@ -360,7 +451,7 @@ export default function Home() {
                 <BookOpen className="h-6 w-6 text-red-600 mt-1" />
               </div>
               <div>
-                <h3 className="font-semibold text-blue-900 mb-2">Leitura Obrigatória</h3>
+                <h3 className="font-semibold text-red-900 mb-2">Leia os Manuais</h3>
                 <p className="text-gray-700 text-sm">
                   Leia atentamente cada manual antes de finalizar sua solicitação. A falta de documentos é o principal motivo de indeferimento.
                 </p>
@@ -372,9 +463,9 @@ export default function Home() {
                 <AlertCircle className="h-6 w-6 text-red-600 mt-1" />
               </div>
               <div>
-                <h3 className="font-semibold text-blue-900 mb-2">Documentação Completa</h3>
+                <h3 className="font-semibold text-red-900 mb-2">Documentação Completa</h3>
                 <p className="text-gray-700 text-sm">
-                  Verifique se você possui toda a documentação necessária antes de protocolar sua solicitação.
+                  Verifique se você possui toda a documentação necessária antes de protocolar sua solicitação no SUAP.
                 </p>
               </div>
             </div>
@@ -384,9 +475,9 @@ export default function Home() {
                 <CheckCircle2 className="h-6 w-6 text-red-600 mt-1" />
               </div>
               <div>
-                <h3 className="font-semibold text-blue-900 mb-2">Confirmação</h3>
+                <h3 className="font-semibold text-red-900 mb-2">Guarde Comprovantes</h3>
                 <p className="text-gray-700 text-sm">
-                  Sempre verifique o status do seu protocolo no sistema após o envio para garantir que foi recebido.
+                  Sempre guarde comprovantes e acompanhe seus chamados no SUAP para garantir que foram recebidos.
                 </p>
               </div>
             </div>
@@ -394,17 +485,19 @@ export default function Home() {
         </section>
 
         {/* Support Section */}
-        <section id="suporte" className="bg-white rounded-xl border border-gray-200 p-8">
+        <section className="bg-white rounded-xl border border-gray-200 p-8">
           <h2 className="text-3xl font-bold text-blue-900 mb-4">Precisa de Ajuda?</h2>
           <p className="text-gray-700 mb-6">
-            Em caso de dúvidas persistentes sobre qualquer procedimento, procure a secretaria acadêmica presencialmente ou utilize os canais de suporte disponíveis.
+            Em caso de dúvidas persistentes sobre qualquer procedimento, procure a secretaria acadêmica presencialmente ou acesse o portal do IFRN.
           </p>
           <div className="grid md:grid-cols-2 gap-4">
-            <Button className="bg-blue-900 hover:bg-blue-800 text-white" size="lg">
-              Contatar Secretaria
+            <Button className="bg-blue-900 hover:bg-blue-800 text-white" size="lg" asChild>
+              <a href="https://portal.ifrn.edu.br" target="_blank" rel="noopener noreferrer">
+                Portal IFRN
+              </a>
             </Button>
             <Button variant="outline" size="lg" className="border-blue-900 text-blue-900 hover:bg-blue-50">
-              Ver FAQ
+              Secretaria Acadêmica
             </Button>
           </div>
         </section>
@@ -416,37 +509,78 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <h3 className="font-semibold mb-4">Sobre</h3>
-              <p className="text-blue-100 text-sm">Guia interativo para solicitações acadêmicas.</p>
+              <p className="text-blue-100 text-sm">Guia interativo para solicitações acadêmicas do IFRN.</p>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Serviços</h3>
               <ul className="space-y-2 text-sm text-blue-100">
-                <li><a href="#" className="hover:text-white transition">Trancamento</a></li>
-                <li><a href="#" className="hover:text-white transition">Aproveitamento</a></li>
-                <li><a href="#" className="hover:text-white transition">Documentos</a></li>
+                <li><a href="#servicos" className="hover:text-white transition">Trancamento</a></li>
+                <li><a href="#servicos" className="hover:text-white transition">Aproveitamento</a></li>
+                <li><a href="#servicos" className="hover:text-white transition">Documentos</a></li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Recursos</h3>
               <ul className="space-y-2 text-sm text-blue-100">
-                <li><a href="#" className="hover:text-white transition">Calendário Acadêmico</a></li>
-                <li><a href="#" className="hover:text-white transition">Manuais</a></li>
-                <li><a href="#" className="hover:text-white transition">FAQ</a></li>
+                <li><a href="https://portal.ifrn.edu.br" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Portal IFRN</a></li>
+                <li><a href="#suap" className="hover:text-white transition">Sobre SUAP</a></li>
+                <li><a href="#avisos" className="hover:text-white transition">Avisos</a></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Contato</h3>
+              <h3 className="font-semibold mb-4">IFRN</h3>
               <p className="text-blue-100 text-sm">
-                Email: secretaria@instituicao.edu.br<br />
-                Telefone: (XX) XXXX-XXXX
+                Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte
               </p>
             </div>
           </div>
           <div className="border-t border-blue-800 pt-8 text-center text-blue-100 text-sm">
-            <p>&copy; 2026 Guia de Solicitações Acadêmicas. Todos os direitos reservados.</p>
+            <p>&copy; 2026 Guia de Solicitações Acadêmicas - IFRN. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>
+
+      {/* QR Code Modal */}
+      {showQRModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4" onClick={() => setShowQRModal(null)}>
+          <Card className="max-w-sm w-full">
+            <CardHeader>
+              <CardTitle>QR Code do Manual</CardTitle>
+              <CardDescription>
+                {services.find(s => s.id === showQRModal)?.manualTitle}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-col items-center gap-4">
+              <div className="w-48 h-48 bg-white rounded-lg flex items-center justify-center border-2 border-gray-200">
+                <QRCode
+                  value={services.find(s => s.id === showQRModal)?.manualLink || ""}
+                  size={200}
+                  level="H"
+                  includeMargin={true}
+                />
+              </div>
+              <p className="text-sm text-gray-600 text-center">
+                Escaneie com seu celular para acessar o manual
+              </p>
+              <Button
+                className="w-full bg-blue-900 hover:bg-blue-800"
+                asChild
+              >
+                <a href={services.find(s => s.id === showQRModal)?.manualLink} target="_blank" rel="noopener noreferrer">
+                  Acessar Manual
+                </a>
+              </Button>
+              <Button
+                variant="outline"
+                className="w-full"
+                onClick={() => setShowQRModal(null)}
+              >
+                Fechar
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      )}
     </div>
   );
 }
