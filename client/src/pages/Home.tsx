@@ -227,13 +227,24 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -ml-48 -mb-48"></div>
 
         <div className="container max-w-6xl mx-auto px-4 relative z-10">
-          <div className="max-w-2xl">
-            <h1 className="display-title text-5xl md:text-6xl mb-6 leading-tight">
-              Guia de Solicitações Acadêmicas
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
-              Passo a passo para não se perder. Todas as solicitações são feitas pelo SUAP com segurança e registro formal.
-            </p>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Logo Section */}
+            <div className="flex justify-center md:justify-start">
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663444660766/cWaRPaNZr75WtyA8Rx93Bg/ifrn-logo_5ddb634b.jpg"
+                alt="Logo IFRN"
+                className="w-full max-w-sm h-auto drop-shadow-2xl"
+              />
+            </div>
+
+            {/* Text Section */}
+            <div className="max-w-2xl">
+              <h1 className="display-title text-5xl md:text-6xl mb-6 leading-tight">
+                🎓 GUIA DE SOLICITAÇÕES ACADÊMICAS
+              </h1>
+              <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
+                Passo a passo para não se perder. Todas as solicitações são feitas pelo SUAP com segurança e registro formal.
+              </p>
             <div className="flex gap-4">
               <Button
                 size="lg"
@@ -253,6 +264,7 @@ export default function Home() {
                 </a>
               </Button>
             </div>
+          </div>
           </div>
         </div>
       </section>
