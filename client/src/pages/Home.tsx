@@ -248,7 +248,7 @@ export default function Home() {
                 className="border-white text-white hover:bg-white hover:text-blue-900"
                 asChild
               >
-                <a href="https://www.suap.ifrn.edu.br" target="_blank" rel="noopener noreferrer">
+                <a href="https://suap.ifrn.edu.br/accounts/login/?next=/" target="_blank" rel="noopener noreferrer">
                   Acessar SUAP
                 </a>
               </Button>
@@ -471,7 +471,7 @@ export default function Home() {
                 className="w-full bg-blue-900 hover:bg-blue-800 text-white mb-4"
                 asChild
               >
-                <a href="https://www.suap.ifrn.edu.br" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                <a href="https://suap.ifrn.edu.br/accounts/login/?next=/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
                   <ExternalLink className="w-4 h-4" />
                   Acessar SUAP
                 </a>
@@ -548,7 +548,7 @@ export default function Home() {
             <Button
               className="bg-blue-900 hover:bg-blue-800 text-white" size="lg" asChild
             >
-              <a href="https://www.suap.ifrn.edu.br" target="_blank" rel="noopener noreferrer">
+              <a href="https://suap.ifrn.edu.br/accounts/login/?next=/" target="_blank" rel="noopener noreferrer">
                 Acessar SUAP
               </a>
             </Button>
@@ -578,7 +578,7 @@ export default function Home() {
             <div>
               <h3 className="font-semibold mb-4">Recursos</h3>
               <ul className="space-y-2 text-sm text-blue-100">
-                <li><a href="https://www.suap.ifrn.edu.br" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">SUAP</a></li>
+                <li><a href="https://suap.ifrn.edu.br/accounts/login/?next=/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">SUAP</a></li>
                 <li><a href="#suap" className="hover:text-white transition">Sobre SUAP</a></li>
                 <li><a href="#avisos" className="hover:text-white transition">Avisos</a></li>
               </ul>
