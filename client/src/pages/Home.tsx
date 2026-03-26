@@ -159,6 +159,18 @@ const services: Service[] = [
 export default function Home() {
   const [expandedService, setExpandedService] = useState<string | null>(null);
   const [showQRModal, setShowQRModal] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+
+  // Filtrar serviços baseado na busca
+  const filteredServices = services.filter((service) => {
+    const query = searchQuery.toLowerCase();
+    return (
+      service.title.toLowerCase().includes(query) ||
+      service.description.toLowerCase().includes(query) ||
+      service.details.some((detail) => detail.toLowerCase().includes(query)) ||
+      service.steps.some((step) => step.toLowerCase().includes(query))
+    );
+  });
 
   const toggleExpanded = (id: string) => {
     setExpandedService(expandedService === id ? null : id);
@@ -291,8 +303,47 @@ export default function Home() {
             <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-transparent rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => (
+          {/* Search Bar */}
+          <div className="mb-8">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="🔍 Buscar serviço (ex: trancamento, aproveitamento, documentos...)"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full px-6 py-4 text-lg border-2 border-blue-200 rounded-lg focus:outline-none focus:border-blue-900 focus:ring-2 focus:ring-blue-100 transition"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+            {searchQuery && (
+              <p className="mt-3 text-sm text-gray-600">
+                {filteredServices.length} resultado{filteredServices.length !== 1 ? "s" : ""} encontrado{filteredServices.length !== 1 ? "s" : ""}
+              </p>
+            )}
+          </div>
+
+          {filteredServices.length === 0 && searchQuery ? (
+            <div className="text-center py-12">
+              <div className="text-6xl mb-4">🔍</div>
+              <h3 className="text-2xl font-semibold text-gray-700 mb-2">Nenhum resultado encontrado</h3>
+              <p className="text-gray-600 mb-6">Tente buscar por palavras-chave diferentes ou explore todos os serviços.</p>
+              <Button
+                onClick={() => setSearchQuery("")}
+                className="bg-blue-900 hover:bg-blue-800 text-white"
+              >
+                Limpar Busca
+              </Button>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredServices.map((service, index) => (
               <div
                 key={service.id}
                 className="animate-in fade-in slide-in-from-bottom-4 duration-500"
@@ -380,7 +431,8 @@ export default function Home() {
                 </Card>
               </div>
             ))}
-          </div>
+            </div>
+          )}
         </section>
 
         {/* SUAP Info Section */}
