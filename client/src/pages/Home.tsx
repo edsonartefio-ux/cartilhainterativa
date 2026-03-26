@@ -246,9 +246,11 @@ export default function Home() {
                 size="lg"
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-blue-900"
-                onClick={() => document.getElementById("suap")?.scrollIntoView({ behavior: "smooth" })}
+                asChild
               >
-                Acessar SUAP
+                <a href="https://www.suap.ifrn.edu.br" target="_blank" rel="noopener noreferrer">
+                  Acessar SUAP
+                </a>
               </Button>
             </div>
           </div>
@@ -469,9 +471,9 @@ export default function Home() {
                 className="w-full bg-blue-900 hover:bg-blue-800 text-white mb-4"
                 asChild
               >
-                <a href="https://portal.ifrn.edu.br" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                <a href="https://www.suap.ifrn.edu.br" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
                   <ExternalLink className="w-4 h-4" />
-                  Acessar Portal IFRN
+                  Acessar SUAP
                 </a>
               </Button>
               <p className="text-xs text-gray-600">
@@ -543,9 +545,11 @@ export default function Home() {
             Em caso de dúvidas persistentes sobre qualquer procedimento, procure a secretaria acadêmica presencialmente ou acesse o portal do IFRN.
           </p>
           <div className="grid md:grid-cols-2 gap-4">
-            <Button className="bg-blue-900 hover:bg-blue-800 text-white" size="lg" asChild>
-              <a href="https://portal.ifrn.edu.br" target="_blank" rel="noopener noreferrer">
-                Portal IFRN
+            <Button
+              className="bg-blue-900 hover:bg-blue-800 text-white" size="lg" asChild
+            >
+              <a href="https://www.suap.ifrn.edu.br" target="_blank" rel="noopener noreferrer">
+                Acessar SUAP
               </a>
             </Button>
             <Button variant="outline" size="lg" className="border-blue-900 text-blue-900 hover:bg-blue-50">
@@ -574,7 +578,7 @@ export default function Home() {
             <div>
               <h3 className="font-semibold mb-4">Recursos</h3>
               <ul className="space-y-2 text-sm text-blue-100">
-                <li><a href="https://portal.ifrn.edu.br" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Portal IFRN</a></li>
+                <li><a href="https://www.suap.ifrn.edu.br" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">SUAP</a></li>
                 <li><a href="#suap" className="hover:text-white transition">Sobre SUAP</a></li>
                 <li><a href="#avisos" className="hover:text-white transition">Avisos</a></li>
               </ul>
