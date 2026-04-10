@@ -99,6 +99,8 @@ jspm_packages/
 # Temporary folders
 tmp/
 temp/
+.corepack/
+.manus-logs/
 
 # Database
 *.db
