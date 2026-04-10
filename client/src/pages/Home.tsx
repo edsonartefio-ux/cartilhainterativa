@@ -209,7 +209,7 @@ export default function Home() {
             </div>
             <div>
               <h1 className="text-xl font-bold text-green-700">IFRN</h1>
-              <p className="text-xs text-gray-600">Guia de Solicitações Acadêmicas</p>
+              <p className="text-xs text-gray-600">CARTILHA INTERATIVA</p>
             </div>
           </div>
           <nav className="hidden md:flex gap-8">
@@ -240,10 +240,10 @@ export default function Home() {
             {/* Text Section */}
             <div className="max-w-2xl">
               <h1 className="display-title text-5xl md:text-6xl mb-6 leading-tight">
-                🎓 GUIA DE SOLICITAÇÕES ACADÊMICAS
+                🎓 CARTILHA INTERATIVA
               </h1>
               <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
-                Passo a passo para não se perder. Todas as solicitações são feitas pelo SUAP com segurança e registro formal.
+                Para Redução de Barreiras Burocráticas no Ensino Profissional.
               </p>
             <div className="flex gap-4">
               <Button
