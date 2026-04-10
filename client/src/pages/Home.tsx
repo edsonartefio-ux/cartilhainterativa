@@ -204,51 +204,40 @@ export default function Home() {
       <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
         <div className="container max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-green-700 to-green-600 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-900 to-blue-700 rounded-lg flex items-center justify-center">
               <GraduationCap className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-green-700">IFRN</h1>
+              <h1 className="text-xl font-bold text-blue-900">IFRN</h1>
               <p className="text-xs text-gray-600">Guia de Solicitações Acadêmicas</p>
             </div>
           </div>
           <nav className="hidden md:flex gap-8">
-            <a href="#servicos" className="text-sm font-medium text-gray-700 hover:text-green-700 transition">Serviços</a>
-            <a href="#avisos" className="text-sm font-medium text-gray-700 hover:text-green-700 transition">Avisos</a>
-            <a href="#suap" className="text-sm font-medium text-gray-700 hover:text-green-700 transition">Sobre SUAP</a>
+            <a href="#servicos" className="text-sm font-medium text-gray-700 hover:text-blue-900 transition">Serviços</a>
+            <a href="#avisos" className="text-sm font-medium text-gray-700 hover:text-blue-900 transition">Avisos</a>
+            <a href="#suap" className="text-sm font-medium text-gray-700 hover:text-blue-900 transition">Sobre SUAP</a>
           </nav>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-green-700 via-green-600 to-red-600 text-white py-20 md:py-32">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white py-20 md:py-32">
         {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -mr-48 -mt-48"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -ml-48 -mb-48"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -mr-48 -mt-48"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -ml-48 -mb-48"></div>
 
         <div className="container max-w-6xl mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Logo Section */}
-            <div className="flex justify-center md:justify-start">
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663444660766/cWaRPaNZr75WtyA8Rx93Bg/ifrn-logo_5ddb634b.jpg"
-                alt="Logo IFRN"
-                className="w-full max-w-sm h-auto drop-shadow-2xl"
-              />
-            </div>
-
-            {/* Text Section */}
-            <div className="max-w-2xl">
-              <h1 className="display-title text-5xl md:text-6xl mb-6 leading-tight">
-                🎓 GUIA DE SOLICITAÇÕES ACADÊMICAS
-              </h1>
-              <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
-                Passo a passo para não se perder. Todas as solicitações são feitas pelo SUAP com segurança e registro formal.
-              </p>
+          <div className="max-w-2xl">
+            <h1 className="display-title text-5xl md:text-6xl mb-6 leading-tight">
+              Guia de Solicitações Acadêmicas
+            </h1>
+            <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
+              Passo a passo para não se perder. Todas as solicitações são feitas pelo SUAP com segurança e registro formal.
+            </p>
             <div className="flex gap-4">
               <Button
                 size="lg"
-                className="bg-red-600 hover:bg-red-700 text-white font-semibold"
+                className="bg-amber-500 hover:bg-amber-600 text-blue-900 font-semibold"
                 onClick={() => document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" })}
               >
                 Explorar Serviços
@@ -256,7 +245,7 @@ export default function Home() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-green-700"
+                className="border-white text-white hover:bg-white hover:text-blue-900"
                 asChild
               >
                 <a href="https://suap.ifrn.edu.br/accounts/login/?next=/" target="_blank" rel="noopener noreferrer">
@@ -264,7 +253,6 @@ export default function Home() {
                 </a>
               </Button>
             </div>
-          </div>
           </div>
         </div>
       </section>
@@ -313,8 +301,8 @@ export default function Home() {
         {/* Services Grid */}
         <section id="servicos" className="mb-20">
           <div className="mb-12">
-            <h2 className="text-4xl font-bold text-green-700 mb-4">Serviços Acadêmicos</h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-red-600 to-transparent rounded-full"></div>
+            <h2 className="text-4xl font-bold text-blue-900 mb-4">Serviços Acadêmicos</h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-transparent rounded-full"></div>
           </div>
 
           {/* Search Bar */}
@@ -325,7 +313,7 @@ export default function Home() {
                 placeholder="🔍 Buscar serviço (ex: trancamento, aproveitamento, documentos...)"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-6 py-4 text-lg border-2 border-green-200 rounded-lg focus:outline-none focus:border-green-700 focus:ring-2 focus:ring-green-100 transition"
+                className="w-full px-6 py-4 text-lg border-2 border-blue-200 rounded-lg focus:outline-none focus:border-blue-900 focus:ring-2 focus:ring-blue-100 transition"
               />
               {searchQuery && (
                 <button
@@ -370,11 +358,11 @@ export default function Home() {
                   <CardHeader>
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex items-start gap-4 flex-1">
-                        <div className="p-3 bg-green-100 rounded-lg text-green-700 flex-shrink-0">
+                        <div className="p-3 bg-blue-100 rounded-lg text-blue-900 flex-shrink-0">
                           {service.icon}
                         </div>
                         <div className="flex-1">
-                          <CardTitle className="text-lg text-green-700">{service.title}</CardTitle>
+                          <CardTitle className="text-lg text-blue-900">{service.title}</CardTitle>
                           <CardDescription className="text-gray-600 mt-1">
                             {service.description}
                           </CardDescription>
@@ -387,7 +375,7 @@ export default function Home() {
                       </div>
                     )}
                     {service.suapInfo && (
-                      <div className="mt-3 text-xs text-green-700 bg-green-50 px-2 py-1 rounded inline-block">
+                      <div className="mt-3 text-xs text-blue-700 bg-blue-50 px-2 py-1 rounded inline-block">
                         {service.suapInfo}
                       </div>
                     )}
@@ -396,7 +384,7 @@ export default function Home() {
                   {expandedService === service.id && (
                     <CardContent className="space-y-4 border-t border-gray-200 pt-4 animate-in fade-in duration-300">
                       <div>
-                        <h4 className="font-semibold text-green-700 mb-2 text-sm">Informações</h4>
+                        <h4 className="font-semibold text-blue-900 mb-2 text-sm">Informações</h4>
                         <ul className="space-y-2">
                           {service.details.map((detail, i) => (
                             <li key={i} className="text-sm text-gray-700 flex gap-2">
@@ -408,11 +396,11 @@ export default function Home() {
                       </div>
 
                       <div>
-                        <h4 className="font-semibold text-green-700 mb-2 text-sm">Como Solicitar</h4>
+                        <h4 className="font-semibold text-blue-900 mb-2 text-sm">Como Solicitar</h4>
                         <ol className="space-y-2">
                           {service.steps.map((step, i) => (
                             <li key={i} className="text-sm text-gray-700 flex gap-3">
-                              <span className="font-semibold text-red-600 flex-shrink-0">{i + 1}.</span>
+                              <span className="font-semibold text-amber-500 flex-shrink-0">{i + 1}.</span>
                               {step}
                             </li>
                           ))}
@@ -421,7 +409,7 @@ export default function Home() {
 
                       <div className="flex gap-2 pt-2">
                         <Button
-                          className="flex-1 bg-green-700 hover:bg-green-800 text-white"
+                          className="flex-1 bg-blue-900 hover:bg-blue-800 text-white"
                           asChild
                         >
                           <a href={service.manualLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
@@ -431,7 +419,7 @@ export default function Home() {
                         </Button>
                         <Button
                           variant="outline"
-                          className="border-green-700 text-green-700 hover:bg-green-50"
+                          className="border-blue-900 text-blue-900 hover:bg-blue-50"
                           onClick={(e) => {
                             e.stopPropagation();
                             setShowQRModal(service.id);
@@ -450,11 +438,11 @@ export default function Home() {
         </section>
 
         {/* SUAP Info Section */}
-        <section id="suap" className="mb-20 bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 border border-green-200">
-          <h2 className="text-3xl font-bold text-green-700 mb-6">💡 Sobre o SUAP</h2>
+        <section id="suap" className="mb-20 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border border-blue-200">
+          <h2 className="text-3xl font-bold text-blue-900 mb-6">💡 Sobre o SUAP</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-xl font-semibold text-green-700 mb-3">O que é SUAP?</h3>
+              <h3 className="text-xl font-semibold text-blue-900 mb-3">O que é SUAP?</h3>
               <p className="text-gray-700 mb-4">
                 SUAP é o Sistema Unificado de Administração Pública do IFRN. Através dele, você realiza todas as solicitações acadêmicas com segurança e registro formal.
               </p>
@@ -474,13 +462,13 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-green-700 mb-3">Como Acessar?</h3>
+              <h3 className="text-xl font-semibold text-blue-900 mb-3">Como Acessar?</h3>
               <p className="text-gray-700 mb-4">
                 Acesse o portal do IFRN e faça login com suas credenciais de aluno.
               </p>
               <Button
                 size="lg"
-                className="w-full bg-green-700 hover:bg-green-800 text-white mb-4"
+                className="w-full bg-blue-900 hover:bg-blue-800 text-white mb-4"
                 asChild
               >
                 <a href="https://suap.ifrn.edu.br/accounts/login/?next=/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
@@ -496,8 +484,8 @@ export default function Home() {
         </section>
 
         {/* Important Notices */}
-        <section id="avisos" className="mb-20 bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-8 border border-red-600">
-          <h2 className="text-3xl font-bold text-red-700 mb-8">⚠️ Avisos Importantes</h2>
+        <section id="avisos" className="mb-20 bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-8 border border-red-200">
+          <h2 className="text-3xl font-bold text-red-900 mb-8">⚠️ Avisos Importantes</h2>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="flex gap-4">
@@ -505,7 +493,7 @@ export default function Home() {
                 <Clock className="h-6 w-6 text-red-600 mt-1" />
               </div>
               <div>
-                <h3 className="font-semibold text-red-700 mb-2">Respeite os Prazos</h3>
+                <h3 className="font-semibold text-red-900 mb-2">Respeite os Prazos</h3>
                 <p className="text-gray-700 text-sm">
                   Todas as solicitações possuem datas rígidas no calendário acadêmico. Solicitações fora do prazo não serão processadas.
                 </p>
@@ -517,7 +505,7 @@ export default function Home() {
                 <BookOpen className="h-6 w-6 text-red-600 mt-1" />
               </div>
               <div>
-                <h3 className="font-semibold text-red-700 mb-2">Leia os Manuais</h3>
+                <h3 className="font-semibold text-red-900 mb-2">Leia os Manuais</h3>
                 <p className="text-gray-700 text-sm">
                   Leia atentamente cada manual antes de finalizar sua solicitação. A falta de documentos é o principal motivo de indeferimento.
                 </p>
@@ -529,7 +517,7 @@ export default function Home() {
                 <AlertCircle className="h-6 w-6 text-red-600 mt-1" />
               </div>
               <div>
-                <h3 className="font-semibold text-red-700 mb-2">Documentação Completa</h3>
+                <h3 className="font-semibold text-red-900 mb-2">Documentação Completa</h3>
                 <p className="text-gray-700 text-sm">
                   Verifique se você possui toda a documentação necessária antes de protocolar sua solicitação no SUAP.
                 </p>
@@ -541,7 +529,7 @@ export default function Home() {
                 <CheckCircle2 className="h-6 w-6 text-red-600 mt-1" />
               </div>
               <div>
-                <h3 className="font-semibold text-red-700 mb-2">Guarde Comprovantes</h3>
+                <h3 className="font-semibold text-red-900 mb-2">Guarde Comprovantes</h3>
                 <p className="text-gray-700 text-sm">
                   Sempre guarde comprovantes e acompanhe seus chamados no SUAP para garantir que foram recebidos.
                 </p>
@@ -552,19 +540,19 @@ export default function Home() {
 
         {/* Support Section */}
         <section className="bg-white rounded-xl border border-gray-200 p-8">
-          <h2 className="text-3xl font-bold text-green-700 mb-4">Precisa de Ajuda?</h2>
+          <h2 className="text-3xl font-bold text-blue-900 mb-4">Precisa de Ajuda?</h2>
           <p className="text-gray-700 mb-6">
             Em caso de dúvidas persistentes sobre qualquer procedimento, procure a secretaria acadêmica presencialmente ou acesse o portal do IFRN.
           </p>
           <div className="grid md:grid-cols-2 gap-4">
             <Button
-              className="bg-green-700 hover:bg-green-800 text-white" size="lg" asChild
+              className="bg-blue-900 hover:bg-blue-800 text-white" size="lg" asChild
             >
               <a href="https://suap.ifrn.edu.br/accounts/login/?next=/" target="_blank" rel="noopener noreferrer">
                 Acessar SUAP
               </a>
             </Button>
-            <Button variant="outline" size="lg" className="border-green-700 text-green-700 hover:bg-green-50">
+            <Button variant="outline" size="lg" className="border-blue-900 text-blue-900 hover:bg-blue-50">
               Secretaria Acadêmica
             </Button>
           </div>
@@ -572,16 +560,16 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-green-700 text-white mt-20">
+      <footer className="bg-blue-900 text-white mt-20">
         <div className="container max-w-6xl mx-auto px-4 py-12">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <h3 className="font-semibold mb-4">Sobre</h3>
-              <p className="text-green-100 text-sm">Guia interativo para solicitações acadêmicas do IFRN.</p>
+              <p className="text-blue-100 text-sm">Guia interativo para solicitações acadêmicas do IFRN.</p>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Serviços</h3>
-              <ul className="space-y-2 text-sm text-green-100">
+              <ul className="space-y-2 text-sm text-blue-100">
                 <li><a href="#servicos" className="hover:text-white transition">Trancamento</a></li>
                 <li><a href="#servicos" className="hover:text-white transition">Aproveitamento</a></li>
                 <li><a href="#servicos" className="hover:text-white transition">Documentos</a></li>
@@ -589,7 +577,7 @@ export default function Home() {
             </div>
             <div>
               <h3 className="font-semibold mb-4">Recursos</h3>
-              <ul className="space-y-2 text-sm text-green-100">
+              <ul className="space-y-2 text-sm text-blue-100">
                 <li><a href="https://suap.ifrn.edu.br/accounts/login/?next=/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">SUAP</a></li>
                 <li><a href="#suap" className="hover:text-white transition">Sobre SUAP</a></li>
                 <li><a href="#avisos" className="hover:text-white transition">Avisos</a></li>
@@ -597,12 +585,12 @@ export default function Home() {
             </div>
             <div>
               <h3 className="font-semibold mb-4">IFRN</h3>
-              <p className="text-green-100 text-sm">
+              <p className="text-blue-100 text-sm">
                 Instituto Federal de Educação, Ciência e Tecnologia do Rio Grande do Norte
               </p>
             </div>
           </div>
-          <div className="border-t border-green-600 pt-8 text-center text-green-100 text-sm">
+          <div className="border-t border-blue-800 pt-8 text-center text-blue-100 text-sm">
             <p>&copy; 2026 Guia de Solicitações Acadêmicas - IFRN. Todos os direitos reservados.</p>
           </div>
         </div>
